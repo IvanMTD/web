@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title th:text="${pageData.getTitle()}">Title</title>
+        <link href="../static/css/base.css" th:href="@{/css/base.css}" rel="stylesheet"/>
+        <!-- <script type="text/javascript" th:src="@{/js/home.js}"></script> -->
+    </head>
+
+    <body>
+        <header th:insert="~{blocks/header}"></header>
+    </body>
 </html>

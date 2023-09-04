@@ -1,31 +1,32 @@
-<div>
-
+<div class="header-block">
     <div class="logo-block">
-        <a th:href="@{/}">
+        <a class="link" th:href="@{/}">
             <img th:src="@{/images/logo.png}" width="64" height="64"/>
             <h1>Онлайн Магазин "Спецодежда"</h1>
         </a>
-        <hr/>
     </div>
-
-    <span class="store-block">
-        <a th:href="@{/catalog}">Каталог</a>
-        <a th:href="@{/cart}">Корзина</a>
-    </span>
-
-    <span class="auth-block">
-        <div th:if="${auth}">
+    <hr/>
+    <div class="auth-block">
+        <div th:if="${pageData.isAuthenticated()}">
             <form id="logoutForm" method="post" th:action="@{/logout}"></form>
             <span>Добро пожаловать </span>
-            <span th:text="${fullName}">Auth</span>
+            <span th:text="${pageData.getUser().getFullName()}">Auth</span>
             <br>
-            <a onclick="document.getElementById('logoutForm').submit()" href="#">Выход</a><hr/>
+            <a class="link" onclick="document.getElementById('logoutForm').submit()" href="#">Выход</a>
         </div>
-        <span th:if="${!auth}">
-            <a th:href="@{/registration}">Регистрация</a>
-            <a th:href="@{/registration/login}">Авторизация</a>
+        <div th:if="${!pageData.isAuthenticated()}">
+            <span>
+                <a class="link" th:href="@{/auth/reg}">Регистрация</a>
+                <a class="link" th:href="@{/auth/login}">Авторизация</a>
+            </span>
+        </div>
+    </div>
+    <hr/>
+    <div class="store-block">
+        <span>
+            <a class="link" th:href="@{/store/catalog}">Каталог</a>
+            <a class="link" th:href="@{/store/cart}">Корзина</a>
         </span>
-    </span>
-
+    </div>
     <hr/>
 </div>

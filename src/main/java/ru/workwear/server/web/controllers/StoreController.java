@@ -18,6 +18,7 @@ public class StoreController {
 
     private final PageData pageData;
 
+    // CATALOG
     @GetMapping("/catalog")
     public Mono<Rendering> showCatalog(){
         return Mono.just(
@@ -27,6 +28,7 @@ public class StoreController {
         );
     }
 
+    // CART
     @GetMapping("/cart")
     public Mono<Rendering> showCart(){
         return Mono.just(
